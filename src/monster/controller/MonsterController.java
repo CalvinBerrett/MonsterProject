@@ -18,7 +18,7 @@ public class MonsterController
 		
 		interactWithMonster(jeremy);
 	}
-	
+	 
 	private void interactWithMonster(MarshmellowMonster currentMonster)
 	{
 		Scanner myScanner = new Scanner(System.in);
