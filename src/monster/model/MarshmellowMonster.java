@@ -18,7 +18,8 @@ public class MarshmellowMonster
 	public MarshmellowMonster(String name, int eyeCount, int armCount, double tentacleAmount, boolean hasBloop)
 	{
 		this.name = name;
-		this.eyeCount = armCount;
+		this.eyeCount = eyeCount;
+		this.armCount = armCount;
 		this.tentacleAmount = tentacleAmount;
 		this.hasBloop = hasBloop;
 	}
@@ -72,6 +73,7 @@ public class MarshmellowMonster
 	{
 		this.hasBloop = hasBloop;
 	}
+	
 	public String toString()
 	{
 		String description = "I am a monster, my name is " + name + ", I have " + eyeCount + " eyes and only ";
