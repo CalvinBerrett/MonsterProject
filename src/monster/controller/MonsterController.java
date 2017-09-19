@@ -2,14 +2,20 @@ package monster.controller;
 
 import monster.model.MarshmellowMonster;
 import java.util.Scanner;
+import monster.view.MonsterDisplay;
 
 public class MonsterController
 {
+	private MonsterDisplay popup;
+	
+	public MonsterController()
+	{
+		popup = new MonsterDisplay();
+	}
 	
 	public void start() throws InterruptedException
 	{
 		MarshmellowMonster basic = new MarshmellowMonster();
-		
 		MarshmellowMonster jeremy = new MarshmellowMonster("Jeremy The Grand", 10, 5, 4, true);
 		System.out.println(jeremy);
 		
@@ -86,6 +92,7 @@ public class MonsterController
 			System.out.println("Wow! You didn't eat anything! You must still be really hungry!");
 			Thread.sleep(2500);//2500ms = 2.5s
 			System.out.println("Well too bad");
+			Thread.sleep(1000);
 			System.out.println("Seeya loser!");
 		}
 		else if(currentMonster.getEyecount() == 0 && currentMonster.getArmCount() == 0 && currentMonster.getTentacleAmount() == 0)
@@ -94,10 +101,15 @@ public class MonsterController
 			System.out.println("You ate all of me :,(");
 			Thread.sleep(2500);
 			System.out.println("Now I'm dead cause of you");
+			Thread.sleep(1000);
 			System.out.println("I hope you're happy");
 			Thread.sleep(2500);
 			System.out.println("Goodbye");
 		}
+		
+		popup.displayText("Hi there, ready to play??");
+		String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
+		System.out.println(answer);
 		
 		myScanner.close();
 	}
