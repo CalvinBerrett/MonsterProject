@@ -17,7 +17,7 @@ public class MonsterController
 	{
 		MarshmellowMonster basic = new MarshmellowMonster();
 //		popup.displayText(basic.toString());
-		MarshmellowMonster jeremy = new MarshmellowMonster("Jeremy The Grand", 10, 5, 4, true);
+		MarshmellowMonster jeremy = new MarshmellowMonster("Jeremy The Great", 10, 5, 4, true);
 //		System.out.println(jeremy);
 		popup.displayText(jeremy.toString());
 		
@@ -60,8 +60,12 @@ public class MonsterController
 		
 //		System.out.println(currentMonster.getName() + " is now wondering how many of his tentacles you'd like to eat");
 		int eaten = 0;
+		// Instead of "String response#" you can just do "response"
 		String response2 = popup.getResponse(currentMonster.getName() + " is now wondering how many of his tentacles you'd like to eat");
-		eaten = Integer.parseInt(response2);
+		if(isValidInteger(response2))
+		{
+			eaten = Integer.parseInt(response2);
+		}
 		
 		if(eaten == 0)
 		{
@@ -88,7 +92,10 @@ public class MonsterController
 //		System.out.println(currentMonster.getName() + " would know like to know how many of his arms you wish to devour this fine evening");
 		int devoured = 0;
 		String response3 = popup.getResponse(currentMonster.getName() + " would know like to know how many of his arms you wish to devour this fine evening");
-		devoured = Integer.parseInt(response3);
+		if(isValidInteger(response3))
+		{
+			devoured = Integer.parseInt(response3);
+		}
 		
 		if (devoured == 0)
 		{
@@ -142,9 +149,9 @@ public class MonsterController
 			popup.displayText("Goodbye");
 		}
 		
-		popup.displayText("Hi there, ready to play??");
-		String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
-		System.out.println(answer);
+//		popup.displayText("Hi there, ready to play??");
+//		String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
+//		System.out.println(answer);
 		
 //		myScanner.close();
 	}
@@ -161,7 +168,41 @@ public class MonsterController
 		}
 		catch(NumberFormatException error) 
 		{
-			popup.displayText("You need to input an int " + sample + " is not valid.");
+			popup.displayText("You need to input an int. " + "'" +  sample + "'" + " is not valid.");
+		}
+		
+		return valid;
+	}
+	
+	private boolean isValidDouble(String sampleDouble)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("You need to type in a double. " + "'" + sampleDouble + "'" + "is not valid answer.");
+		}
+		
+		return valid;
+	}
+	
+	private boolean isValidBoolean(String sampleBoolean)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("You need to type in a boolean. " + "'" + sampleBoolean + "'" + "does not count.");
 		}
 		
 		return valid;
