@@ -43,10 +43,17 @@ public class MonsterController
 //		popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many.");
 		int consumed = 0;
 		String response = popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many.");
-		if(isValidInteger(response))
+		
+		while(!isValidInteger(response))
 		{
-			consumed = Integer.parseInt(response);
+			popup.displayText("grrrr type in a better answer next time");
+			response = popup.getResponse("Type in an integer value!");
 		}
+		
+//		if(isValidInteger(response))
+//		{
+			consumed = Integer.parseInt(response);
+//		}
 		
 		if(consumed == 0)
 		{
@@ -74,11 +81,19 @@ public class MonsterController
 		int eaten = 0;
 		// Instead of "String response#" you can just do "response"
 		String response2 = popup.getResponse(currentMonster.getName() + " is now wondering how many of his tentacles you'd like to eat");
-		if(isValidInteger(response2))
-		{
-			eaten = Integer.parseInt(response2);
-		}
 		
+		while(!isValidInteger(response2))
+		{
+			popup.displayText("grrrr type in a better answer next time");
+			response2 = popup.getResponse("Type in an integer value!");
+		}
+		eaten = Integer.parseInt(response2);
+		
+//		if(isValidInteger(response2))
+//		{
+//			eaten = Integer.parseInt(response2);
+//		}
+
 		if(eaten == 0)
 		{
 //			System.out.println("You really don't want to eat any of my tentacles? Okay :(");
@@ -104,10 +119,18 @@ public class MonsterController
 //		System.out.println(currentMonster.getName() + " would know like to know how many of his arms you wish to devour this fine evening");
 		int devoured = 0;
 		String response3 = popup.getResponse(currentMonster.getName() + " would know like to know how many of his arms you wish to devour this fine evening");
-		if(isValidInteger(response3))
+		
+		while(!isValidInteger(response2))
 		{
-			devoured = Integer.parseInt(response3);
+			popup.displayText("grrrr type in a better answer next time");
+			response3 = popup.getResponse("Type in an integer value!");
 		}
+		devoured = Integer.parseInt(response3);
+		
+//		if(isValidInteger(response3))
+//		{
+//			devoured = Integer.parseInt(response3);
+//		}
 		
 		if (devoured == 0)
 		{
