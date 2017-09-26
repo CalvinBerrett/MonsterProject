@@ -15,6 +15,13 @@ public class MonsterController
 	
 	public void start() throws InterruptedException
 	{
+		int count = 0;
+//		while(count < 10)
+//		{
+//			popup.displayText("Am I not the coolest?!?!");
+//			count +=2;
+//		}
+		
 		MarshmellowMonster basic = new MarshmellowMonster();
 //		popup.displayText(basic.toString());
 		MarshmellowMonster jeremy = new MarshmellowMonster("Jeremy The Great", 10, 5, 4, true);
