@@ -3,14 +3,18 @@ package monster.controller;
 import monster.model.MarshmellowMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MonsterController
 {
 	private MonsterDisplay popup;
+	private List<MarshmellowMonster> monsterList;
 	
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmellowMonster>();
 	}
 	
 	public void start() throws InterruptedException
@@ -32,6 +36,10 @@ public class MonsterController
 		MarshmellowMonster jeremy = new MarshmellowMonster("Jeremy The Great", 10, 5, 4, true);
 //		System.out.println(jeremy);
 		popup.displayText(jeremy.toString());
+		
+		monsterList.add(basic);
+		monsterList.add(jeremy);
+		
 		
 		interactWithMonster(jeremy);
 	}
